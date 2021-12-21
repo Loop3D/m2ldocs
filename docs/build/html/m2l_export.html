@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>map2loop.m2l_export &mdash; map2loop 1.1.76 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="map2loop.m2l_geometry" href="m2l_interpolation.html" />
+    <link rel="prev" title="map2loop.m2l_geometry" href="m2l_geometry.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> map2loop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_utils.html">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">map2loop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>map2loop.m2l_export</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/m2l_export.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-map2loop.m2l_export">
+<span id="map2loop-m2l-export"></span><h1>map2loop.m2l_export<a class="headerlink" href="#module-map2loop.m2l_export" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_export.ElementToPandas">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_export.</span></span><span class="sig-name descname"><span class="pre">ElementToPandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loopFilename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loopCompoundType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_export.ElementToPandas" title="Permalink to this definition"></a></dt>
+<dd><p><strong>ElementToPandas</strong> - Exports one element of the loop project file
+to a pandas dataframe</p>
+<dl class="simple">
+<dt>loopFilename: string</dt><dd><p>The filename of the loop project file</p>
+</dd>
+<dt>element: string</dt><dd><p>The name of the element to extract</p>
+</dd>
+<dt>loopCompoundType: numpy.compoundType</dt><dd><p>The numpy data structure that the element is stored in</p>
+</dd>
+<dt>Returns</dt><dd><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_export.loop2LoopStructural">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_export.</span></span><span class="sig-name descname"><span class="pre">loop2LoopStructural</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m2l_directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_export.loop2LoopStructural" title="Permalink to this definition"></a></dt>
+<dd><p>create a model from a map2loop directory</p>
+<p>[extended_summary]</p>
+<dl class="simple">
+<dt>m2l_directory<span class="classifier">string</span></dt><dd><p>path to the map2loop directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_export.loop2gempy">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_export.</span></span><span class="sig-name descname"><span class="pre">loop2gempy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_export.loop2gempy" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the model using gempy as backend.
+At the moment there is not support for finite faults since gempy does not</p>
+<blockquote>
+<div><p>accept passing the ellipsoid parameters directly.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>vtk_path</em>) – path of contacts file</p></li>
+<li><p><strong>orientations_file</strong> – path of orientations file</p></li>
+<li><p><strong>bbox</strong> – model bounding box</p></li>
+<li><p><strong>groups_file</strong> – path of groups file</p></li>
+<li><p><strong>model_base</strong> – z value ofbase of model</p></li>
+<li><p><strong>model_top</strong> – z value of top of model</p></li>
+<li><p><strong>dtm_reproj_file</strong> – path of dtm file</p></li>
+<li><p><strong>faults_contact</strong> – path of contacts file with fault data</p></li>
+<li><p><strong>faults_orientations</strong> – path of orientations file with fault data</p></li>
+<li><p><strong>faults_rel_matrix</strong> – bool matrix describing the interaction between groups. Rows offset columns</p></li>
+<li><p><strong>faults_groups_rel</strong> – bool matrix describing the interaction between faults and features</p></li>
+<li><p><strong>faults_faults_rel</strong> – bool matrix describing the interaction between faults and faults</p></li>
+<li><p><strong>model_name</strong> – name of the model</p></li>
+<li><p><strong>(</strong><strong>bool</strong><strong>)</strong> (<em>vtk</em>) – Default True. Whether or not compute the model</p></li>
+<li><p><strong>(</strong><strong>bool</strong><strong>)</strong> – Default False. Whether or not visualize the model</p></li>
+<li><p><strong>(</strong><strong>str</strong><strong>)</strong> – Default None. Path of vtk output directory</p></li>
+<li><p><strong>(</strong><strong>dict</strong><strong>)</strong> (<em>plot_3d_kwargs</em>) – kwargs for <cite>gempy.plot_3d</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>gempy.Project</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_export.loop2gempy__">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_export.</span></span><span class="sig-name descname"><span class="pre">loop2gempy__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_data_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vtk_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientations_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contacts_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_base</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_top</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vtk</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtm_reproj_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">va</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_export.loop2gempy__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>test_data_name</strong> – </p></li>
+<li><p><strong>tmp_path</strong> – </p></li>
+<li><p><strong>vtk_path</strong> – </p></li>
+<li><p><strong>orientations_file</strong> – </p></li>
+<li><p><strong>contacts_file</strong> – </p></li>
+<li><p><strong>groups_file</strong> – </p></li>
+<li><p><strong>bbox</strong> – </p></li>
+<li><p><strong>model_base</strong> – </p></li>
+<li><p><strong>model_top</strong> – </p></li>
+<li><p><strong>vtk</strong> – </p></li>
+<li><p><strong>dtm_reproj_file</strong> – </p></li>
+<li><p><strong>va</strong> – vertical anisotropy. Factor by which all Z coordinates are multiplied by</p></li>
+<li><p><strong>verbose</strong> – </p></li>
+<li><p><strong>compute</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_export.rand_cmap">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_export.</span></span><span class="sig-name descname"><span class="pre">rand_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlabels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bright'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_export.rand_cmap" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a random colormap to be used together with matplotlib. Useful for segmentation tasks
+:param nlabels: Number of labels (size of colormap)
+:param type: ‘bright’ for strong colors, ‘soft’ for pastel colors
+:param first_color_black: Option to use first color as black, True or False
+:param last_color_black: Option to use last color as black, True or False
+:param verbose: Prints the number of labels and shows the colormap. True or False
+:return: colormap for matplotlib</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="m2l_geometry.html" class="btn btn-neutral float-left" title="map2loop.m2l_geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="m2l_interpolation.html" class="btn btn-neutral float-right" title="map2loop.m2l_geometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mark Jessell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

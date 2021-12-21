@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>map2loop documentation &mdash; map2loop 1.1.76 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> map2loop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_export.html">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_utils.html">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">map2loop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>map2loop documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="map2loop-documentation">
+<h1>map2loop documentation<a class="headerlink" href="#map2loop-documentation" title="Permalink to this headline"></a></h1>
+<p>map2loop is a map deconstruction library to provide inputs to Loop ([Loop3d.org](<a class="reference external" href="https://loop3d.org/">https://loop3d.org/</a>)).
+The development of map2loop is lead by <strong>Mark Jessell</strong> at The University of Western Australia. <strong>Yohan de Rose</strong> at Monash University is now making it better. Standalone map2model cpp code from Vitaliy provides fault/fault and fault/strat relationships.</p>
+<section id="what-it-does">
+<h2>1. What it does:<a class="headerlink" href="#what-it-does" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Combines information extracted from vector geology maps in various forms to support 3D geological modelling.</p></li>
+</ul>
+<p>Outputs are simple csv files that should be readable by any 3D modelling system (I think), but specific examples are provided for</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Loop3D/LoopStructural">https://github.com/Loop3D/LoopStructural</a> LoopStructural,</p></li>
+<li><p><a class="reference external" href="https://github.com/cgre-aachen/gempy">https://github.com/cgre-aachen/gempy</a> gempy and</p></li>
+<li><p><a class="reference external" href="https://github.com/cgre-aachen/pynoddy">https://github.com/cgre-aachen/pynoddy</a> noddy.</p></li>
+</ul>
+<dl class="simple">
+<dt>Loop is led by Laurent Ailleres (Monash University) with a team of Work Package leaders from:</dt><dd><ul class="simple">
+<li><p>Monash University: Roy Thomson, Lachlan Grose and Robin Armit</p></li>
+<li><p>University of Western Australia: Mark Jessell, Jeremie Giraud, Mark Lindsay and Guillaume Pirot</p></li>
+<li><p>Geological Survey of Canada: Boyan Brodaric and Eric de Kemp</p></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li><p>This is very much a proof of concept code that is unlikely to work first time with anything but the example dataset provided, but if you would like to try it with your own data please feel free to contact me at <a class="reference external" href="mailto:mark&#46;jessell&#37;&#52;&#48;uwa&#46;edu&#46;au">mark<span>&#46;</span>jessell<span>&#64;</span>uwa<span>&#46;</span>edu<span>&#46;</span>au</a> to discuss your plans.</p></li>
+<li><p>The fastest install path (thanks to Yohan de Rose) is via docker, go to development version at which provides both map2loop and LoopStructural:</p>
+<p><a class="reference external" href="http://github.com/Loop3D/map2loop-2">http://github.com/Loop3D/map2loop-2</a></p>
+</li>
+<li><p>otherwise follow these instructions:</p>
+<p><a class="reference external" href="https://github.com/Loop3D/map2loop/blob/master/m2l_LS_install.md">https://github.com/Loop3D/map2loop/blob/master/m2l_LS_install.md</a></p>
+</li>
+<li><p>Problems</p></li>
+</ul>
+<p>Any bugs/feature requests/comments please create a new issue: <a class="reference external" href="https://github.com/Loop3D/map2loop/issues">https://github.com/Loop3D/map2loop/issues</a>.</p>
+<ul class="simple">
+<li><p>Acknowledgements</p>
+<ul>
+<li><p>ARC Linkage Project LP1701000985</p></li>
+<li><p>MinEx CRC</p></li>
+</ul>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_export.html">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_utils.html">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mark Jessell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

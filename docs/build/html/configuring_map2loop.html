@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1) Defining map2loop parameters: &mdash; map2loop 1.1.76 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="map2loop.project" href="project.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> map2loop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1) Defining <em>map2loop</em> parameters:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_export.html">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_utils.html">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">map2loop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>1) Defining <em>map2loop</em> parameters:</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configuring_map2loop.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="defining-map2loop-parameters">
+<h1>1) Defining <em>map2loop</em> parameters:<a class="headerlink" href="#defining-map2loop-parameters" title="Permalink to this headline"></a></h1>
+<dl class="simple">
+<dt>There are four types of parameters we need to define in order to use <em>map2loop</em>:</dt><dd><ul class="simple">
+<li><p><strong>a) The paths or URLs</strong> that tell <em>map2loop</em> where the information layers (GIS files or online sources) are stored. These are passed to the <em>map2loop</em> update_config() method.</p></li>
+<li><p><strong>b) The names of fields and some text flags</strong> that tell <em>map2loop</em> where specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the <em>map2loop</em> Project() method.</p></li>
+<li><p><strong>c) A data output path, bounding box and Coordinate Reference System</strong> information to define the extent of the model and where to put it. This is passed to the <em>map2loop</em> update_config() method</p></li>
+<li><p><strong>d) Parameters that control the specific functioning</strong> of <em>map2loop</em>: what to calculate, what decimation factors to apply to the augmented data outputs, what resolution interpolations to use etc. These is passed to the map2looop project.run() method.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>1.1 paths</strong></p>
+<p>These is passed to the <em>map2loop</em> Project() method.</p>
+<p>Examples:</p>
+<p><strong>Remote WFS layers: See Example 1 Notebook</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span> <span class="o">=</span> <span class="s1">&#39;http://geo.loop-gis.org/geoserver/loop/wfs?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=loop:geol_500k&amp;bbox=</span><span class="si">{}</span><span class="s1">&amp;srs=EPSG:28350&#39;</span><span class="p">,</span>
+            <span class="n">fault_file</span><span class="o">=</span><span class="s1">&#39;http:// etc.&#39;</span><span class="p">,</span>
+            <span class="n">structure_file</span><span class="o">=</span><span class="s1">&#39;http:// etc.&#39;</span><span class="p">,</span>
+            <span class="n">mindep_file</span><span class="o">=</span><span class="s1">&#39;http:// etc.,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="s2">&quot;http://anyurl.org/mydata.hjson&#39;,</span>
+            <span class="n">remote</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where remote=True signifies that WFS-served data will be accessed.</p>
+<p><strong>Standard Australia State Geological Surveys datasets, we have predefined the paths for all data and the following code is sufficient: See Example 2 Notebook</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span>
+              <span class="n">loopdata_state</span><span class="o">=</span><span class="s2">&quot;WA&quot;</span><span class="p">,</span> <span class="c1"># choice between &#39;WA&#39;,&#39;QLD&#39;,&#39;NT&#39;,&#39;NSW&#39;,&#39;VIC&#39;,&#39;SA&#39;, &#39;TAS&#39;</span>
+              <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Local GIS layers: see Example 3 notebook</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span><span class="o">=</span><span class="s2">&quot;source/geology_polygons.shp&quot;</span><span class="p">,</span>
+            <span class="n">fault_file</span><span class="o">=</span><span class="s2">&quot;source/fault_polylines.shp&quot;</span><span class="p">,</span>
+            <span class="n">fold_file</span><span class="o">=</span><span class="s2">&quot;source/fold_polylines.shp&quot;</span><span class="p">,</span>
+            <span class="n">structure_file</span><span class="o">=</span><span class="s2">&quot;source/bedding_points.shp&quot;</span><span class="p">,</span>
+            <span class="n">mindep_file</span><span class="o">=</span><span class="s2">&quot;source/mindep_points.shp&quot;</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="s2">&quot;source/meta.hjson&quot;</span><span class="p">,</span>
+            <span class="n">dtm_file</span><span class="o">=</span><span class="s2">&quot;./source_data/terr50_gagg_gb_all.tif&quot;</span><span class="p">,</span>
+            <span class="n">remote</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where remote=False signifies that local GIS files will be accessed. Paths can be relative or absolute, or even a URL, however for URLs, the components of the shapefile or TAB file have to be zipped up.</p>
+<p><strong>1.2 Layer field codes:</strong></p>
+<p>You will need to create or modify an <em>hjson</em> format file that provides the names of fields and some text flags that tell <em>map2loop</em> where and what specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the <em>map2loop</em> Project() method. The easiest way to get started is to use a jupyter notebook allows you to reduce errors by providing a primitive GUI for creating an <em>hjson</em> config file and associated python script, named: <strong>Utility 1 - Config file generator.ipynb</strong>. Alternatively if you are brave you can edit the values to the right of the colon in each row of an existing <em>hjson</em> file. For example to specify that the field in the geospatial layer that contains bedding dip information is called <strong>MYDIP</strong>, replace the appropriate code in the <em>hjson</em> file below with:</p>
+<blockquote>
+<div><p>“d”:”MYDIP”,</p>
+</div></blockquote>
+<p>Some verification is carried out by <em>map2loop</em> to ensure the required parameters have been defined. In the following section <em>field</em> refers to a field name in a geospatial layer; <em>text</em> refers to some text in the contents of a field for a specific geometric object.  You shouldn’t use the same field for different codes as this may cause problems.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1"># Orientations-----------------------------</span>
+    <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;DIP&quot;</span><span class="p">,</span>  <span class="c1"># field that contains dip information</span>
+    <span class="s2">&quot;dd&quot;</span><span class="p">:</span> <span class="s2">&quot;DIP_DIR&quot;</span><span class="p">,</span>  <span class="c1"># field that contains dip direction information</span>
+    <span class="s2">&quot;sf&quot;</span><span class="p">:</span> <span class="s2">&quot;FEATURE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains information on type of structure</span>
+    <span class="c1"># text to search for in field defined by sf code to show that this is a bedding measurement</span>
+    <span class="s2">&quot;bedding&quot;</span><span class="p">:</span> <span class="s2">&quot;Bed&quot;</span><span class="p">,</span>
+    <span class="c1"># flag to determine measurement convention (currently &quot;strike&quot; or &quot;dip direction&quot;)</span>
+    <span class="s2">&quot;otype&quot;</span><span class="p">:</span> <span class="s2">&quot;dip direction&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bo&quot;</span><span class="p">:</span> <span class="s2">&quot;TYPE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains type of foliation</span>
+    <span class="c1"># text to search for in field defined by bo code to show that this is an overturned bedding measurement</span>
+    <span class="s2">&quot;btype&quot;</span><span class="p">:</span> <span class="s2">&quot;overturned&quot;</span><span class="p">,</span>
+    <span class="c1"># Stratigraphy-----------------------------</span>
+    <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;GROUP_&quot;</span><span class="p">,</span>  <span class="c1"># field that contains coarser stratigraphic coding</span>
+    <span class="c1"># field that contains alternate coarser stratigraphic coding if &quot;g&quot; is blank</span>
+    <span class="s2">&quot;g2&quot;</span><span class="p">:</span> <span class="s2">&quot;SUPERSUITE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;UNITNAME&quot;</span><span class="p">,</span>  <span class="c1"># field that contains finer stratigraphic coding</span>
+    <span class="s2">&quot;ds&quot;</span><span class="p">:</span> <span class="s2">&quot;DESCRIPTN&quot;</span><span class="p">,</span>  <span class="c1"># field that contains information about lithology</span>
+    <span class="c1"># field that contains alternate stratigraphic coding (not used??)</span>
+    <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;CODE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="s2">&quot;ROCKTYPE1&quot;</span><span class="p">,</span>  <span class="c1"># field that contains  extra lithology information</span>
+    <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="s2">&quot;ROCKTYPE2&quot;</span><span class="p">,</span>  <span class="c1"># field that contains even more lithology information</span>
+    <span class="s2">&quot;sill&quot;</span><span class="p">:</span> <span class="s2">&quot;sill&quot;</span><span class="p">,</span>  <span class="c1"># text to search for in field defined by ds code to show that this is a sill</span>
+    <span class="c1"># text to search for in field defined by r1 code to show that this is an intrusion</span>
+    <span class="s2">&quot;intrusive&quot;</span><span class="p">:</span> <span class="s2">&quot;intrusive&quot;</span><span class="p">,</span> <span class="c1"># text to search for in field defined by ds code to show that this is an volcanic (not intrusion) &quot;volcanic&quot;: &quot;volcanic&quot;,</span>
+    <span class="c1"># Mineral Deposits-----------------------------</span>
+    <span class="s2">&quot;msc&quot;</span><span class="p">:</span> <span class="s2">&quot;SITE_CODE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains site code of deposit</span>
+    <span class="s2">&quot;msn&quot;</span><span class="p">:</span> <span class="s2">&quot;SHORT_NAME&quot;</span><span class="p">,</span>  <span class="c1"># field that contains short name of deposit</span>
+    <span class="s2">&quot;mst&quot;</span><span class="p">:</span> <span class="s2">&quot;SITE_TYPE_&quot;</span><span class="p">,</span>  <span class="c1"># field that contains site type of deposit</span>
+    <span class="s2">&quot;mtc&quot;</span><span class="p">:</span> <span class="s2">&quot;TARGET_COM&quot;</span><span class="p">,</span>  <span class="c1"># field that contains target commodity of deposit</span>
+    <span class="s2">&quot;mscm&quot;</span><span class="p">:</span> <span class="s2">&quot;SITE_COMMO&quot;</span><span class="p">,</span>  <span class="c1"># field that contains site commodity of deposit</span>
+    <span class="s2">&quot;mcom&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMODITY_&quot;</span><span class="p">,</span>  <span class="c1"># field that contains commodity group of deposit</span>
+    <span class="c1"># text to search for in field defined by mst code that shows site to ignore</span>
+    <span class="s2">&quot;minf&quot;</span><span class="p">:</span> <span class="s2">&quot;Infrastructure&quot;</span><span class="p">,</span>
+    <span class="c1"># Timing-----------------------------</span>
+    <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="s2">&quot;MIN_AGE_MA&quot;</span><span class="p">,</span>  <span class="c1"># field that contains minimum age of unit defined by ccode</span>
+    <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="s2">&quot;MAX_AGE_MA&quot;</span><span class="p">,</span>  <span class="c1"># field that contains maximum age of unit defined by ccode</span>
+    <span class="c1">#faults and folds-----------------------------</span>
+    <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;FEATURE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains information on type of structure</span>
+    <span class="c1"># text to search for in field defined by f code to show that this is a fault</span>
+    <span class="s2">&quot;fault&quot;</span><span class="p">:</span> <span class="s2">&quot;Fault&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ff&quot;</span><span class="p">:</span> <span class="s2">&quot;FEATURE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains information on type of structure</span>
+    <span class="c1"># text to search for in field defined by f code to show that this is a fold axial trace</span>
+    <span class="s2">&quot;fold&quot;</span><span class="p">:</span> <span class="s2">&quot;Fold axial trace&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fdip&quot;</span><span class="p">:</span> <span class="s2">&quot;DIP&quot;</span><span class="p">,</span>               <span class="c1"># field for numeric fault dip value</span>
+    <span class="c1"># text to search for in field defined by fdip to show that this has no known dip</span>
+    <span class="s2">&quot;fdipnull&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fdipdir&quot;</span><span class="p">:</span> <span class="s2">&quot;DIP_DIR&quot;</span><span class="p">,</span>        <span class="c1"># field for text fault dip direction value</span>
+    <span class="c1"># flag for text fault dip direction type num e.g. 045 or alpha e.g. southeast</span>
+    <span class="s2">&quot;fdipdir_flag&quot;</span><span class="p">:</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fdipest&quot;</span><span class="p">:</span> <span class="s2">&quot;DIP_EST&quot;</span><span class="p">,</span>        <span class="c1"># field for text fault dip estimate value</span>
+    <span class="c1"># text to search for in field defined by fdipest to give fault dip estimate in increasing steepness</span>
+    <span class="s2">&quot;fdipest_vals&quot;</span><span class="p">:</span> <span class="s2">&quot;gentle,moderate,steep&quot;</span><span class="p">,</span>
+    <span class="c1"># field that contains information on name of fault (not used??)</span>
+    <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;NAME&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;TYPE&quot;</span><span class="p">,</span>  <span class="c1"># field that contains information on type of fold</span>
+    <span class="c1"># text to search for in field defined by t to show that this is a syncline</span>
+    <span class="s2">&quot;syn&quot;</span><span class="p">:</span> <span class="s2">&quot;syncline&quot;</span><span class="p">,</span>
+    <span class="c1"># ids-----------------------------</span>
+    <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span>  <span class="c1"># field that contains unique id of geometry object</span>
+    <span class="s2">&quot;gi&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOPNT_ID&quot;</span><span class="p">,</span>  <span class="c1"># field that contains unique id of structure point</span>
+    <span class="s2">&quot;deposit_dist&quot;</span><span class="p">:</span> <span class="mi">500</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>1.3 ROI, Projection, output paths</strong></p>
+<p>A data output path which points to a new or existing directory (a new directory will be created if needed), bounding box and Coordinate Reference System information to define the extent of the model. This is be passed to the <em>map2loop</em> update_config() method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">.</span><span class="n">update_config</span><span class="p">(</span>
+                  <span class="n">out_dir</span><span class="o">=</span><span class="s1">&#39;./model-test&#39;</span><span class="p">,</span>
+                  <span class="n">overwrite</span><span class="o">=</span><span class="s1">&#39;overwrite&#39;</span><span class="p">,</span>
+                  <span class="n">bbox_3d</span><span class="o">=</span><span class="p">{</span>
+                       <span class="s2">&quot;minx&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">,</span>
+                       <span class="s2">&quot;miny&quot;</span><span class="p">:</span> <span class="mi">7490000</span><span class="p">,</span>
+                       <span class="s2">&quot;maxx&quot;</span><span class="p">:</span> <span class="mi">545000</span><span class="p">,</span>
+                       <span class="s2">&quot;maxy&quot;</span><span class="p">:</span> <span class="mi">7520000</span><span class="p">,</span>
+                       <span class="s2">&quot;base&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">4800</span><span class="p">,</span>
+                       <span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+                   <span class="p">},</span>
+                  <span class="n">proj_crs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="s1">&#39;EPSG:28350&#39;</span><span class="p">},</span>
+                  <span class="n">quiet</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>where bbox coordinates are in CRS defined by proj_crs</p></li>
+<li><p>where overwite can be ‘overwrite’, ‘true’</p></li>
+<li><p>where quiet controls whether we allow or block print statements and matplotlib figures. Use ‘none’ to quiet nothing, ‘all’ to quiet everything, ‘no-figures’ to disable plots and allow text output. Defaults to ‘none’</p></li>
+</ul>
+<p><strong>1.4 Full list of update_config flags:</strong></p>
+<dl class="simple">
+<dt>Project flags:</dt><dd><ul class="simple">
+<li><p><strong>out_dir</strong> Path to write output files to. :type out_dir: string</p></li>
+<li><p><strong>overwrite</strong> Allow overwriting the given out_dir if it exists, false, true or in-place, defaults to false :type overwrite: string, optional</p></li>
+<li><p><strong>bbox_3d</strong> 3D bounding box of coordinates and base/top values defining the area, defaults to { “minx”: 0, “maxx”: 0, “maxx”: 0, “maxy”: 0, “base”: -10000, “top”: 1200, } :type bbox_3d: dict, optional</p></li>
+<li><p><strong>dtm_crs</strong> Set the projection of the dtm, defaults to {‘init’: ‘EPSG:4326’} :type dtm_crs: dict, optional</p></li>
+<li><p><strong>proj_crs</strong> Set the projection of the input data, defaults to None :type proj_crs: dict, optional</p></li>
+<li><p><strong>step_out</strong> How far to consider outside the re-projected dtm, defaults to None :type step_out: int, optional</p></li>
+<li><p><strong>quiet</strong> Allow or block print statements and matplotlib figures, ‘None’ to quiet nothing, ‘all’ to quiet everything, ‘no-figures’ to disable plots and allow text output. Defaults to ‘None’ :type quiet: string, optional</p></li>
+<li><p><strong>clut_path</strong> Path to custom map colours file :type clut_path: string, optional</p></li>
+<li><p><strong>model_engine</strong> Which modelling engine to use and set associated flags for, defaults to loopstructural :type model_engine: string, optional</p></li>
+<li><p><strong>run_flags</strong> Global dictionary that defines custom params such as decimation and minimum fault length, see below :type run_flags: dict, optional</p></li>
+<li><p><strong>**kwargs</strong></p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>1.5 Calculation control parameters</strong></p>
+<p>These control the specific functionality of <em>map2loop</em>: what to calculate, what decimation factors to apply to the augmented data outputs, what resolution interpolations to use etc. These are passed to the <em>map2looop</em> project run() method:</p>
+<p>proj.run()</p>
+<p>This method performs the data processing steps of the <em>map2loop</em> workflow, and can be modified by including the following parameters as run_flags [defaults](data type):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>aus</strong>: Indicates if area is in Australia for using ASUD, the Australian Stratigraphic Units Database to redfine stratigraphic relationships. Should only be True in Australia, and when the finest stratigraphic level is the ASUD standard Formation name.  [True]  (bool)</p></li>
+<li><p><strong>close_dip</strong>: Dip to assign to all new fold axial trace orientations. If -999 then the nearest interpolated dip for that supergroup will be used instead.  [-999] In degrees (int)</p></li>
+<li><p><strong>contact_decimate</strong>: Save every nth contact data point. 0 means save all data.  [5]  (int)</p></li>
+<li><p><strong>contact_dip</strong>: Dip to assign to all new basal contact orientations. If -999 then the nearest interpolated dip for that supergroup will be used instead. [-999] In degrees (int)</p></li>
+<li><p><strong>contact_orientation_decimate</strong>: Save every nth contact orientation point. 0 means save all data.  [5]  (int)</p></li>
+<li><p><strong>deposits</strong>: Mineral deposit names for focused topology extraction.  [“Fe,Cu,Au,NONE”] Topological analysis of faults and strat will only be carried out relative to these deposit type. NONE must always be one of the types (str)</p></li>
+<li><p><strong>dist_buffer</strong>: Buffer for processing basal contacts. Basal contact vertices less than this distance from the fault will be ignored.  [10] In metres.  (int)</p></li>
+<li><p><strong>dtb</strong>: Path to depth to basement grid. Geotif of depths in the same projection system as everything else.  [‘’]  (str)</p></li>
+<li><p><strong>fat_step</strong>: How much to step out normal to the fold axial trace. Distance in metres.  [750] In metres.  (int)</p></li>
+<li><p><strong>fault_decimate</strong>: Save every nth fault data point along fault tace. 0 means save all data. [5] (int)</p></li>
+<li><p><strong>fault_dip</strong>:  default fault dip [90] In degrees (int)</p></li>
+<li><p><strong>fold_decimate</strong>: Save every nth fold axial trace data point. 0 means save all data. [5]  (int)</p></li>
+<li><p><strong>interpolation_scheme</strong>: What interpolation method to use of scipy_rbf (radial basis) or scipy_idw (inverse distance weighted).  [‘scipy_rbf’] (str)</p></li>
+<li><p><strong>interpolation_spacing</strong>: Interpolation grid spacing in meters. Used to interpolation bedding orientations [500] In metres or if a negative value defines fixed number of grid points in x &amp; y (int)</p></li>
+<li><p><strong>intrusion_mode</strong>: 1 to exclude all intrusions from basal contacts, [0] to only exclude sills.  [0]  (int)</p></li>
+<li><p><strong>max_thickness_allowed</strong>:  when estimating local formation thickness [10000] in metres.  (int)</p></li>
+<li><p><strong>min_fault_length</strong>: Min fault length to be considered. In metres.  [5000] In meters. (int)</p></li>
+<li><p><strong>misorientation</strong>:  [30] Maximum misorientation in pole to great circle of bedding between  groups to be considered part of same supergroup (int)</p></li>
+<li><p><strong>null_scheme</strong>: How null values present in the depth to basement geotif.  [‘null’]  (str)</p></li>
+<li><p><strong>orientation_decimate</strong>: Save every nth orientation data point. 0 means save all data. [0] type int</p></li>
+<li><p><strong>pluton_dip</strong>: default pluton contact dip [45] In degrees (int)</p></li>
+<li><p><strong>pluton_form</strong>: Possible forms from domes, saucers or pendant.  [‘domes’]  (str)</p></li>
+<li><p><strong>thickness_buffer</strong>: How far away to look for next highest unit when calculating formation thickness [5000] In metres. (int)</p></li>
+<li><p><strong>use_fat</strong>:  Use fold axial trace info to add near-axis bedding info  [True]  (bool)</p></li>
+<li><p><strong>use_interpolations</strong>: Use all interpolated dips for modelling [True]  (bool)</p></li>
+<li><p><strong>fault_orientation_clusters</strong>:[2] number of clusters for kmeans clustering of faults by orientation (int)</p></li>
+<li><p><strong>fault_length_clusters</strong>: number of clusters for kmeans clustering of faults by length [2] (int)</p></li>
+<li><p><strong>use_roi_clip</strong>: use non-rectangular ROI polygon [False] (bool)</p></li>
+<li><p><strong>roi_clip_path</strong>: path to non-rectangular ROI polygon shapefile [‘’] (bool)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>1.6 Calculation workflow parameters</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>seismic_section</strong>: Add data from a single seismic section (paths hardwired for the moment) [False] (bool)</p></li>
+<li><p><strong>cover_map</strong>: Add data from a depth to basement grid (paths hardwired for the moment) [False] (bool)</p></li>
+<li><p><strong>near_fault_interpolations</strong>: Add stratigraphic info near faults [False] (bool)</p></li>
+<li><p><strong>fold_axial_traces</strong>: Add dip info either side of fold axial trace to enhance second order folds [False] (bool)</p></li>
+<li><p><strong>stereonets</strong>: Calculate stereonets to define supergroups [True] (bool)</p></li>
+<li><p><strong>formation_thickness</strong>: Calculate formation thickness [True] (bool)</p></li>
+<li><p><strong>polarity</strong>: Calculate bedding polarity (doesn’t work!!) [False] (bool)</p></li>
+<li><p><strong>strat_offset</strong>: Calculate stratigraphic offset across faults [True] (bool)</p></li>
+<li><p><strong>contact_dips</strong>: Add fixed or interpolated dips to contacts [True] (bool)</p></li>
+</ul>
+</div></blockquote>
+<p>Individual workflow parameters can be overwritten AFTER the call to proj.update_config() as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">.</span><span class="n">workflow</span><span class="p">[</span><span class="s1">&#39;contact_dips&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+<section id="example-minimum-code">
+<h1>2. Example minimum code:<a class="headerlink" href="#example-minimum-code" title="Permalink to this headline"></a></h1>
+<p>An example minimum code to run <em>map2loop</em> with mostly default settings might look like this (and see the notebook <strong>Example 3 - Local Source Data.ipynb</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">map2loop.project</span> <span class="kn">import</span> <span class="n">Project</span>
+
+<span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span><span class="o">=</span><span class="s2">&quot;source/geology_polygons.shp&quot;</span><span class="p">,</span>
+            <span class="n">fault_file</span><span class="o">=</span><span class="s2">&quot;source/fault_polylines.shp&quot;</span><span class="p">,</span>
+            <span class="n">fold_file</span><span class="o">=</span><span class="s2">&quot;source/fold_polylines.shp&quot;</span><span class="p">,</span>
+            <span class="n">structure_file</span><span class="o">=</span><span class="s2">&quot;source/bedding_points.shp&quot;</span><span class="p">,</span>
+            <span class="n">mindep_file</span><span class="o">=</span><span class="s2">&quot;source/mindep_points.shp&quot;</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="s2">&quot;source/meta.hjson&quot;</span>
+            <span class="n">dtm_file</span><span class="o">=</span><span class="s2">&quot;http://services.ga.gov.au/gis/services/DEM_SRTM_1Second_over_Bathymetry_Topography/MapServer/WCSServer?&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+<span class="n">proj</span><span class="o">.</span><span class="n">update_config</span><span class="p">(</span>
+                    <span class="n">out_dir</span><span class="o">=</span><span class="s1">&#39;./model-test&#39;</span><span class="p">,</span>
+                    <span class="n">bbox_3d</span><span class="o">=</span><span class="p">{</span>
+                        <span class="s2">&quot;minx&quot;</span><span class="p">:</span> <span class="n">mbbox</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="c1">#500000,</span>
+                        <span class="s2">&quot;miny&quot;</span><span class="p">:</span> <span class="n">mbbox</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="c1">#7490000,</span>
+                        <span class="s2">&quot;maxx&quot;</span><span class="p">:</span> <span class="n">mbbox</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="c1">#545000,</span>
+                        <span class="s2">&quot;maxy&quot;</span><span class="p">:</span> <span class="n">mbbox</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="c1">#7520000,</span>
+                        <span class="s2">&quot;base&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">4800</span><span class="p">,</span>
+                        <span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+                        <span class="s2">&quot;local&#39;: True</span>
+                    <span class="p">},</span>
+                    <span class="n">proj_crs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="s1">&#39;EPSG:28350&#39;</span><span class="p">}</span>
+                    <span class="p">)</span>
+
+<span class="n">proj</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="project.html" class="btn btn-neutral float-right" title="map2loop.project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mark Jessell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>map2loop.m2l_utils &mdash; map2loop 1.1.76 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="map2loop.map" href="map.html" />
+    <link rel="prev" title="map2loop.m2l_map_checker" href="m2l_map_checker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> map2loop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_export.html">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">map2loop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>map2loop.m2l_utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/m2l_utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-map2loop.m2l_utils">
+<span id="map2loop-m2l-utils"></span><h1>map2loop.m2l_utils<a class="headerlink" href="#module-map2loop.m2l_utils" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_utils.clip_shp">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_utils.</span></span><span class="sig-name descname"><span class="pre">clip_shp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_utils.clip_shp" title="Permalink to this definition"></a></dt>
+<dd><p>Clip points, lines, or polygon geometries to the clip_obj extent.
+Both layers must be in the same Coordinate Reference System (CRS) and will
+be clipped to the full extent of the clip object.
+If there are multiple polygons in clip_obj,
+data from shp will be clipped to the total boundary of
+all polygons in clip_obj.
+Parameters
+———-
+shp : GeoDataFrame</p>
+<blockquote>
+<div><p>Vector layer (point, line, polygon) to be clipped to clip_obj.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>clip_obj<span class="classifier">GeoDataFrame</span></dt><dd><p>Polygon vector layer used to clip shp.
+The clip_obj’s geometry is dissolved into one geometric feature
+and intersected with shp.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>GeoDataFrame</dt><dd><p>Vector data (points, lines, polygons) from shp clipped to
+polygon boundary from clip_obj.</p>
+</dd>
+</dl>
+<p>Clipping points (glacier locations in the state of Colorado) with
+a polygon (the boundary of Rocky Mountain National Park):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">earthpy.clip</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">earthpy.io</span> <span class="kn">import</span> <span class="n">path_to_example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path_to_example</span><span class="p">(</span><span class="s1">&#39;rmnp.shp&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">glaciers</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path_to_example</span><span class="p">(</span><span class="s1">&#39;colorado-glaciers.geojson&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">glaciers</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(134, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp_glaciers</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">clip_shp</span><span class="p">(</span><span class="n">glaciers</span><span class="p">,</span> <span class="n">rmnp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp_glaciers</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(36, 2)</span>
+</pre></div>
+</div>
+<p>Clipping a line (the Continental Divide Trail) with a
+polygon (the boundary of Rocky Mountain National Park):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cdt</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path_to_example</span><span class="p">(</span><span class="s1">&#39;continental-div-trail.geojson&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp_cdt_section</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">clip_shp</span><span class="p">(</span><span class="n">cdt</span><span class="p">,</span> <span class="n">rmnp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cdt</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">rmnp_cdt_section</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">length</span>
+<span class="go">0    True</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p>Clipping a polygon (Colorado counties) with another polygon
+(the boundary of Rocky Mountain National Park):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">counties</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path_to_example</span><span class="p">(</span><span class="s1">&#39;colorado-counties.geojson&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">counties</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(64, 13)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp_counties</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">clip_shp</span><span class="p">(</span><span class="n">counties</span><span class="p">,</span> <span class="n">rmnp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rmnp_counties</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4, 13)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_utils.floatstohex">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_utils.</span></span><span class="sig-name descname"><span class="pre">floatstohex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_utils.floatstohex" title="Permalink to this definition"></a></dt>
+<dd><p>Takes an RGB tuple or list and returns a hex RGB string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_utils.hextofloats">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_utils.</span></span><span class="sig-name descname"><span class="pre">hextofloats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_utils.hextofloats" title="Permalink to this definition"></a></dt>
+<dd><p>Takes a hex rgb string (e.g. #ffffff) and returns an RGB tuple (float, float, float).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_utils.hextoints">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_utils.</span></span><span class="sig-name descname"><span class="pre">hextoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_utils.hextoints" title="Permalink to this definition"></a></dt>
+<dd><p>Takes a hex rgb string (e.g. #ffffff) and returns an RGB tuple (float, float, float).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map2loop.m2l_utils.intstohex">
+<span class="sig-prename descclassname"><span class="pre">map2loop.m2l_utils.</span></span><span class="sig-name descname"><span class="pre">intstohex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.m2l_utils.intstohex" title="Permalink to this definition"></a></dt>
+<dd><p>Takes an RGB tuple or list and returns a hex RGB string.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="m2l_map_checker.html" class="btn btn-neutral float-left" title="map2loop.m2l_map_checker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="map.html" class="btn btn-neutral float-right" title="map2loop.map" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mark Jessell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
