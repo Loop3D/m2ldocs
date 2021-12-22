@@ -9,7 +9,7 @@ In this library we draw inspiration from existing manual workflows and structura
    
 The libraries described here retrieve information from GIS layers or online servers, clean and decimate the data if needed, and then go through a series of data analysis steps to extract information from GIS layers stored locally or on online servers. This information includes: the local stratigraphy, the geometries of the basal contacts of units, and faults, estimates of local offsets along faults, and estimates of local formation thickness. Once these and other information have been extracted, they are output as standard formats (Graph Meta Language (GML), csv, geotif and ESRI shapefile formats) so that the target 3D modelling systems can use them as they are. 
    
-Once the input parameters are defined, it is important to emphasise that the entire workflow is automated, so all decisions 
+Once the input parameters are defined, the entire workflow is automated, so all decisions 
 about choices of parameters are made up front and the consequences of these decisions can be directly analysed in terms of 
 the augmented outputs of the map2loop code, or via the 3D models that can themselves be automatically built from these 
 augmented outputs. Once the Configuration File has been generated, and the workflow control parameters defined in the map2loop Control Script, all further actions are fully automated, from accessing the input data, up to and including the construction of the 3D model using LoopStructural or GemPy. 
