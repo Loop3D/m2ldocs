@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1) Defining map2loop parameters: &mdash; map2loop 1.1.76 documentation</title>
+  <title>Defining map2loop parameters &mdash; map2loop 1.1.76 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="map2loop.project" href="project.html" />
-    <link rel="prev" title="Usage" href="usage.html" /> 
+    <link rel="prev" title="inputs" href="inputs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,8 +39,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1) Defining <em>map2loop</em> parameters:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">inputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Defining <em>map2loop</em> parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#example-minimum-code">Example minimum code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
@@ -69,7 +70,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>1) Defining <em>map2loop</em> parameters:</li>
+      <li>Defining <em>map2loop</em> parameters</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/configuring_map2loop.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -80,7 +81,7 @@
            <div itemprop="articleBody">
              
   <section id="defining-map2loop-parameters">
-<h1>1) Defining <em>map2loop</em> parameters:<a class="headerlink" href="#defining-map2loop-parameters" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>Defining <em>map2loop</em> parameters<a class="headerlink" href="#defining-map2loop-parameters" title="Permalink to this headline"></a></h1>
 <dl class="simple">
 <dt>There are four types of parameters we need to define in order to use <em>map2loop</em>:</dt><dd><ul class="simple">
 <li><p><strong>a) The paths or URLs</strong> that tell <em>map2loop</em> where the information layers (GIS files or online sources) are stored. These are passed to the <em>map2loop</em> update_config() method.</p></li>
@@ -93,7 +94,8 @@
 <p><strong>1.1 paths</strong></p>
 <p>These is passed to the <em>map2loop</em> Project() method.</p>
 <p>Examples:</p>
-<p><strong>Remote WFS layers: See Example 1 Notebook</strong></p>
+<p><strong>Remote WFS layers:</strong>
+<a class="reference external" href="https://github.com/Loop3D/map2loop2-notebooks">See Example 1 notebook</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span> <span class="o">=</span> <span class="s1">&#39;http://geo.loop-gis.org/geoserver/loop/wfs?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=loop:geol_500k&amp;bbox=</span><span class="si">{}</span><span class="s1">&amp;srs=EPSG:28350&#39;</span><span class="p">,</span>
             <span class="n">fault_file</span><span class="o">=</span><span class="s1">&#39;http:// etc.&#39;</span><span class="p">,</span>
             <span class="n">structure_file</span><span class="o">=</span><span class="s1">&#39;http:// etc.&#39;</span><span class="p">,</span>
@@ -103,13 +105,20 @@
 </pre></div>
 </div>
 <p>where remote=True signifies that WFS-served data will be accessed.</p>
+<p><strong>Remote WFS for GSWA with interactive selection of region of interest:</strong>
+<a class="reference external" href="https://github.com/Loop3D/map2loop2-notebooks">See Example 2 notebook</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">loopdata_state</span><span class="o">=</span><span class="s2">&quot;WA&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where remote=True signifies that WFS-served data will be accessed.</p>
 <p><strong>Standard Australia State Geological Surveys datasets, we have predefined the paths for all data and the following code is sufficient: See Example 2 Notebook</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span>
               <span class="n">loopdata_state</span><span class="o">=</span><span class="s2">&quot;WA&quot;</span><span class="p">,</span> <span class="c1"># choice between &#39;WA&#39;,&#39;QLD&#39;,&#39;NT&#39;,&#39;NSW&#39;,&#39;VIC&#39;,&#39;SA&#39;, &#39;TAS&#39;</span>
               <span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Local GIS layers: see Example 3 notebook</strong></p>
+<p><strong>Local GIS layers:</strong>
+<a class="reference external" href="https://github.com/Loop3D/map2loop2-notebooks">See Example 3 notebook</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span><span class="o">=</span><span class="s2">&quot;source/geology_polygons.shp&quot;</span><span class="p">,</span>
             <span class="n">fault_file</span><span class="o">=</span><span class="s2">&quot;source/fault_polylines.shp&quot;</span><span class="p">,</span>
             <span class="n">fold_file</span><span class="o">=</span><span class="s2">&quot;source/fold_polylines.shp&quot;</span><span class="p">,</span>
@@ -122,7 +131,7 @@
 </div>
 <p>where remote=False signifies that local GIS files will be accessed. Paths can be relative or absolute, or even a URL, however for URLs, the components of the shapefile or TAB file have to be zipped up.</p>
 <p><strong>1.2 Layer field codes:</strong></p>
-<p>You will need to create or modify an <em>hjson</em> format file that provides the names of fields and some text flags that tell <em>map2loop</em> where and what specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the <em>map2loop</em> Project() method. The easiest way to get started is to use a jupyter notebook allows you to reduce errors by providing a primitive GUI for creating an <em>hjson</em> config file and associated python script, named: <strong>Utility 1 - Config file generator.ipynb</strong>. Alternatively if you are brave you can edit the values to the right of the colon in each row of an existing <em>hjson</em> file. For example to specify that the field in the geospatial layer that contains bedding dip information is called <strong>MYDIP</strong>, replace the appropriate code in the <em>hjson</em> file below with:</p>
+<p>You will need to create or modify an <em>hjson</em> format file that provides the names of fields and some text flags that tell <em>map2loop</em> where and what specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the <em>map2loop</em> Project() method. The easiest way to get started is to use a jupyter notebook allows you to reduce errors by providing a primitive GUI for creating an <em>hjson</em> config file and associated python script, named: <a class="reference external" href="https://github.com/Loop3D/map2loop2-notebooks">See Utility 1 - Config file generator.ipynb notebook</a>. Alternatively if you are brave you can edit the values to the right of the colon in each row of an existing <em>hjson</em> file. For example to specify that the field in the geospatial layer that contains bedding dip information is called <strong>MYDIP</strong>, replace the appropriate code in the <em>hjson</em> file below with:</p>
 <blockquote>
 <div><p>“d”:”MYDIP”,</p>
 </div></blockquote>
@@ -289,8 +298,9 @@
 </div>
 </section>
 <section id="example-minimum-code">
-<h1>2. Example minimum code:<a class="headerlink" href="#example-minimum-code" title="Permalink to this headline"></a></h1>
-<p>An example minimum code to run <em>map2loop</em> with mostly default settings might look like this (and see the notebook <strong>Example 3 - Local Source Data.ipynb</strong>):</p>
+<h1>Example minimum code<a class="headerlink" href="#example-minimum-code" title="Permalink to this headline"></a></h1>
+<p>An example minimum code to run <em>map2loop</em> with mostly default settings might look like this <a class="reference external" href="https://github.com/Loop3D/map2loop2-notebooks">See Example 3 notebook</a>
+):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">map2loop.project</span> <span class="kn">import</span> <span class="n">Project</span>
 
 <span class="n">proj</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">geology_file</span><span class="o">=</span><span class="s2">&quot;source/geology_polygons.shp&quot;</span><span class="p">,</span>
@@ -319,13 +329,21 @@
 <span class="n">proj</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>This code will take information from the GSWA 1:500K Interpeted Bedrock Geology map:</p>
+<a class="reference internal image-reference" href="_images/gswa_map.png"><img alt="GSWA Map" src="_images/gswa_map.png" style="width: 400px;" /></a>
+<p>which generates a series of augmented outputs, including: a topological analysis of the spatial and temporal relationships of fetaures in the map:</p>
+<a class="reference internal image-reference" href="_images/graph.png"><img alt="graph" src="_images/graph.png" style="width: 400px;" /></a>
+<p>extraction of basal contacts of units, fault locations, orientaion of bedding and foliations, and derived products such as local formation thickness estimates:</p>
+<a class="reference internal image-reference" href="_images/outputs.png"><img alt="outputs" src="_images/outputs.png" style="width: 400px;" /></a>
+<p>these can then be fed into 3D modelling packages such as <a class="reference external" href="https://github.com/Loop3D/LoopStructural">LoopStructural</a> (top  <a class="reference external" href="https://geo.loop-gis.org/models/vtkleaflet_2021-09-21-15-21.html">Link to interactive 3D model</a>) and <a class="reference external" href="https://www.gempy.org/">gempy</a> (lower).</p>
+<a class="reference internal image-reference" href="_images/3dmodels.png"><img alt="3D models" src="_images/3dmodels.png" style="width: 400px;" /></a>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inputs.html" class="btn btn-neutral float-left" title="inputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="project.html" class="btn btn-neutral float-right" title="map2loop.project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

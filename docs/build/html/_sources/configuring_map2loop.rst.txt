@@ -1,4 +1,6 @@
-1) Defining *map2loop* parameters:
+.. _defining-map2loop-parameters:
+
+Defining *map2loop* parameters
 ##################################
 
 There are four types of parameters we need to define in order to use *map2loop*:
@@ -14,7 +16,8 @@ These is passed to the *map2loop* Project() method.
 
 Examples:
    
-**Remote WFS layers: See Example 1 Notebook**
+**Remote WFS layers:**
+`See Example 1 notebook <https://github.com/Loop3D/map2loop2-notebooks>`_
 ::
 
   proj=Project(geology_file = 'http://geo.loop-gis.org/geoserver/loop/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=loop:geol_500k&bbox={}&srs=EPSG:28350',
@@ -25,6 +28,14 @@ Examples:
               remote=True)
 
 where remote=True signifies that WFS-served data will be accessed.
+
+**Remote WFS for GSWA with interactive selection of region of interest:**
+`See Example 2 notebook <https://github.com/Loop3D/map2loop2-notebooks>`_
+::
+
+  proj=Project(loopdata_state="WA")
+
+where remote=True signifies that WFS-served data will be accessed.
    
 **Standard Australia State Geological Surveys datasets, we have predefined the paths for all data and the following code is sufficient: See Example 2 Notebook**
 ::
@@ -33,7 +44,8 @@ where remote=True signifies that WFS-served data will be accessed.
                 loopdata_state="WA", # choice between 'WA','QLD','NT','NSW','VIC','SA', 'TAS'
                 )
 
-**Local GIS layers: see Example 3 notebook**
+**Local GIS layers:**
+`See Example 3 notebook <https://github.com/Loop3D/map2loop2-notebooks>`_
 ::
 
   proj=Project(geology_file="source/geology_polygons.shp",
@@ -49,7 +61,7 @@ where remote=False signifies that local GIS files will be accessed. Paths can be
 
 **1.2 Layer field codes:**
 
-You will need to create or modify an *hjson* format file that provides the names of fields and some text flags that tell *map2loop* where and what specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the *map2loop* Project() method. The easiest way to get started is to use a jupyter notebook allows you to reduce errors by providing a primitive GUI for creating an *hjson* config file and associated python script, named: **Utility 1 - Config file generator.ipynb**. Alternatively if you are brave you can edit the values to the right of the colon in each row of an existing *hjson* file. For example to specify that the field in the geospatial layer that contains bedding dip information is called **MYDIP**, replace the appropriate code in the *hjson* file below with:
+You will need to create or modify an *hjson* format file that provides the names of fields and some text flags that tell *map2loop* where and what specific information can be retrieved from these layers. These are stored in an hjson format text file the path of which is passed to the *map2loop* Project() method. The easiest way to get started is to use a jupyter notebook allows you to reduce errors by providing a primitive GUI for creating an *hjson* config file and associated python script, named: `See Utility 1 - Config file generator.ipynb notebook <https://github.com/Loop3D/map2loop2-notebooks>`_. Alternatively if you are brave you can edit the values to the right of the colon in each row of an existing *hjson* file. For example to specify that the field in the geospatial layer that contains bedding dip information is called **MYDIP**, replace the appropriate code in the *hjson* file below with:
 
  "d":"MYDIP",
 
@@ -217,10 +229,11 @@ Individual workflow parameters can be overwritten AFTER the call to proj.update_
 
   proj.workflow['contact_dips'] = False
 
-2. Example minimum code:
-########################
+Example minimum code
+####################
 
-An example minimum code to run *map2loop* with mostly default settings might look like this (and see the notebook **Example 3 - Local Source Data.ipynb**):
+An example minimum code to run *map2loop* with mostly default settings might look like this `See Example 3 notebook <https://github.com/Loop3D/map2loop2-notebooks>`_
+):
 ::
 
   from map2loop.project import Project
@@ -249,3 +262,28 @@ An example minimum code to run *map2loop* with mostly default settings might loo
                       )
 
   proj.run()
+
+This code will take information from the GSWA 1:500K Interpeted Bedrock Geology map:
+
+.. image:: pics/gswa_map.png
+  :width: 400
+  :alt: GSWA Map
+
+which generates a series of augmented outputs, including: a topological analysis of the spatial and temporal relationships of fetaures in the map:
+
+.. image:: pics/graph.png
+  :width: 400
+  :alt: graph
+
+extraction of basal contacts of units, fault locations, orientaion of bedding and foliations, and derived products such as local formation thickness estimates:
+
+.. image:: pics/outputs.png
+  :width: 400
+  :alt: outputs
+
+these can then be fed into 3D modelling packages such as `LoopStructural <https://github.com/Loop3D/LoopStructural>`_ (top  `Link to interactive 3D model <https://geo.loop-gis.org/models/vtkleaflet_2021-09-21-15-21.html>`_) and `gempy <https://www.gempy.org/>`_ (lower). 
+
+.. image:: pics/3dmodels.png
+  :width: 400
+  :alt: 3D models
+

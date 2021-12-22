@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="map2loop.config" href="config.html" />
-    <link rel="prev" title="1) Defining map2loop parameters:" href="configuring_map2loop.html" /> 
+    <link rel="prev" title="Defining map2loop parameters" href="configuring_map2loop.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,8 +39,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">Defining <em>map2loop</em> parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">Example minimum code</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">map2loop.project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
@@ -114,6 +115,29 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="map2loop.project.Project.update_config">
+<span class="sig-name descname"><span class="pre">update_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'false'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loopFilename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'base':</span> <span class="pre">-</span> <span class="pre">10000,</span> <span class="pre">'maxx':</span> <span class="pre">0,</span> <span class="pre">'maxy':</span> <span class="pre">0,</span> <span class="pre">'minx':</span> <span class="pre">0,</span> <span class="pre">'top':</span> <span class="pre">1200}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtm_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'init':</span> <span class="pre">'EPSG:4326'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proj_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clut_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'loopstructural'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.project.Project.update_config" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a ‘sub-project’ Config object and pre-processes input data for some area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_dir</strong> (<em>string</em>) – Path to write output files to.</p></li>
+<li><p><strong>overwrite</strong> (<em>string</em><em>, </em><em>optional</em>) – Allow overwriting the given out_dir if it exists, false, true or in-place, defaults to false</p></li>
+<li><p><strong>bbox_3d</strong> (<em>dict</em><em>, </em><em>optional</em>) – 3D bounding box of coordinates and base/top values defining the area, defaults to { “minx”: 0, “maxx”: 0, “maxx”: 0, “maxy”: 0, “base”: -10000, “top”: 1200, }</p></li>
+<li><p><strong>dtm_crs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Set the projection of the dtm, defaults to {‘init’: ‘EPSG:4326’}</p></li>
+<li><p><strong>proj_crs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Set the projection of the input data, defaults to None</p></li>
+<li><p><strong>step_out</strong> (<em>int</em><em>, </em><em>optional</em>) – How far to consider outside the re-projected dtm, defaults to None</p></li>
+<li><p><strong>quiet</strong> (<em>string</em><em>, </em><em>optional</em>) – Allow or block print statements and matplotlib figures, ‘None’ to quiet nothing, ‘all’ to quiet everything, ‘no-figures’ to disable plots and allow text output. Defaults to ‘None’</p></li>
+<li><p><strong>clut_path</strong> (<em>string</em><em>, </em><em>optional</em>) – Path to custom map colours file</p></li>
+<li><p><strong>model_engine</strong> (<em>string</em><em>, </em><em>optional</em>) – Which modelling engine to use and set associated flags for, defaults to loopstructural</p></li>
+<li><p><strong>run_flags</strong> (<em>dict</em><em>, </em><em>optional</em>) – Global dictionary that defines custom params such as decimates and fault length see <a class="reference external" href="https://github.com/Loop3D/map2loop-2/issues/56">https://github.com/Loop3D/map2loop-2/issues/56</a></p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="map2loop.project.Project.update_workflow">
 <span class="sig-name descname"><span class="pre">update_workflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map2loop.project.Project.update_workflow" title="Permalink to this definition"></a></dt>
 <dd><p>Set unique run flags depending on model engine to tailor outputs.</p>
@@ -132,7 +156,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="configuring_map2loop.html" class="btn btn-neutral float-left" title="1) Defining map2loop parameters:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuring_map2loop.html" class="btn btn-neutral float-left" title="Defining map2loop parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="config.html" class="btn btn-neutral float-right" title="map2loop.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

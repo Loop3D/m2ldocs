@@ -38,8 +38,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">Defining <em>map2loop</em> parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">Example minimum code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
@@ -82,10 +83,12 @@
 <h1>map2loop documentation<a class="headerlink" href="#map2loop-documentation" title="Permalink to this headline"></a></h1>
 <p>map2loop is a map deconstruction library to provide inputs to Loop ([Loop3d.org](<a class="reference external" href="https://loop3d.org/">https://loop3d.org/</a>)).
 The development of map2loop is lead by <strong>Mark Jessell</strong> at The University of Western Australia. <strong>Yohan de Rose</strong> at Monash University is now making it better. Standalone map2model cpp code from Vitaliy provides fault/fault and fault/strat relationships.</p>
+<a class="reference internal image-reference" href="_images/all_sm.png"><img alt="summary" src="_images/all_sm.png" style="width: 600px;" /></a>
 <section id="what-it-does">
 <h2>1. What it does:<a class="headerlink" href="#what-it-does" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Combines information extracted from vector geology maps in various forms to support 3D geological modelling.</p></li>
+<li><p>To find out how this is achieved, read the article in  <a class="reference external" href="https://gmd.copernicus.org/articles/14/5063/2021/">Geoscientific Model Development</a></p></li>
 </ul>
 <p>Outputs are simple csv files that should be readable by any 3D modelling system (I think), but specific examples are provided for</p>
 <ul class="simple">
@@ -103,11 +106,8 @@ The development of map2loop is lead by <strong>Mark Jessell</strong> at The Univ
 </dl>
 <ul>
 <li><p>This is very much a proof of concept code that is unlikely to work first time with anything but the example dataset provided, but if you would like to try it with your own data please feel free to contact me at <a class="reference external" href="mailto:mark&#46;jessell&#37;&#52;&#48;uwa&#46;edu&#46;au">mark<span>&#46;</span>jessell<span>&#64;</span>uwa<span>&#46;</span>edu<span>&#46;</span>au</a> to discuss your plans.</p></li>
-<li><p>The fastest install path (thanks to Yohan de Rose) is via docker, go to development version at which provides both map2loop and LoopStructural:</p>
+<li><p>The fastest install path (thanks to Yohan de Rose) is via conda, with instructions and code:</p>
 <p><a class="reference external" href="http://github.com/Loop3D/map2loop-2">http://github.com/Loop3D/map2loop-2</a></p>
-</li>
-<li><p>otherwise follow these instructions:</p>
-<p><a class="reference external" href="https://github.com/Loop3D/map2loop/blob/master/m2l_LS_install.md">https://github.com/Loop3D/map2loop/blob/master/m2l_LS_install.md</a></p>
 </li>
 <li><p>Problems</p></li>
 </ul>
@@ -135,10 +135,13 @@ The development of map2loop is lead by <strong>Mark Jessell</strong> at The Univ
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#sample-data-and-notebooks">Sample data and notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-your-own-data">Using your own data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">1) Defining <em>map2loop</em> parameters:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">2. Example minimum code:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">Defining <em>map2loop</em> parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">Example minimum code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
