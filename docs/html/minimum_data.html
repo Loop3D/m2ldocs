@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimum input data requirements &mdash; map2loop 1.1.76 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outputs" href="outputs.html" />
+    <link rel="prev" title="Inputs" href="inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> map2loop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Minimum input data requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html">Defining <em>map2loop</em> parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_map2loop.html#example-minimum-code">Example minimum code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">map2loop.project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">map2loop.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_geometry.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_export.html">map2loop.m2l_export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_interpolation.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_map_checker.html">map2loop.m2l_map_checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m2l_utils.html">map2loop.m2l_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">map2loop.map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map2graph.html">map2loop.m2l_geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaceTime.html">map2loop.SpaceTime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">map2loop.topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geophysics.html">map2loop.Geophysics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">map2loop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Minimum input data requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/minimum_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="minimum-input-data-requirements">
+<h1>Minimum input data requirements<a class="headerlink" href="#minimum-input-data-requirements" title="Permalink to this headline"></a></h1>
+<p><strong>5.1 Vector Geospatial File Data Formats:</strong></p>
+<p>‘DXF’: ‘raw’, ‘CSV’: ‘raw’, ‘OpenFileGDB’: ‘r’, ‘ESRIJSON’: ‘r’, ‘ESRI Shapefile’: ‘raw’, ‘GeoJSON’: ‘rw’, ‘GeoJSONSeq’: ‘rw’, ‘GPKG’: ‘rw’, ‘GML’: ‘raw’,  ‘MapInfo File’: ‘raw’</p>
+<p>r=read, a=append, w=write</p>
+<ul class="simple">
+<li><p>geology polygons with stratigraphic code and rock type info (required)</p></li>
+<li><p>fault polylines (required)</p></li>
+<li><p>bed dips as points in dip, dip direction (required)</p></li>
+<li><p>mineral deposit layer (optional)</p></li>
+<li><p>fold axial trace layer (optional)</p></li>
+</ul>
+<p><strong>5.2 Geology Polygons (or Multipolygons):</strong></p>
+<ul class="simple">
+<li><p>no gaps or overlaps between polygons, nodes from neighbouring polygons coincide (we have code to fix errors when the mismatch is smaller than the minimum node spacing).</p></li>
+<li><p>Stratigraphic Coherency:
+- Ideally the map should consist of polygons which all have the same stratigraphic heirarchical level, e.g. all formations, all groups, all members etc. This is often not the case, and it makes unravelling the stratigraphy more complex, as the parent and child may appear in the same map, so the age sorting needed to build the model becomes ambiguous. National or state-level stratigraphies, and even stratigraphies described on map sheet legends are by definition simplifications of the the local system extracted by <em>map2loop</em>. <em>map2loop</em> uses the local stratigraphy first and then uses the regional stratigraphy (if available) as a guide to reduce the uncertainty.</p></li>
+<li><dl class="simple">
+<dt>Attributes with (data type) and {code} (see section 2.2):</dt><dd><ul>
+<li><p>Fine Scale Stratigraphic coding, e.g. formation name (str) {‘c’}</p></li>
+<li><p>Coarser Scale stratigraphic coding, such as its parent, e.g. group (str) {‘g’}</p></li>
+<li><p>Alternate Coarser Scale stratigraphic coding, e.g. group (str) {‘g2’}</p></li>
+<li><p>Relative or absolute maximum age of Fine Scale Stratigraphic Code (float) {‘max’}</p></li>
+<li><p>Relative or absolute minimum age of Fine Scale Stratigraphic Code (float) {‘min’}</p></li>
+<li><p>Litho code to help determine if rock is intrusive (str) {‘ds’}</p></li>
+<li><p>Litho Code to help detemrine if this is a sill-like body (str) {‘sill’}</p></li>
+<li><p>Unique ID of polygon (str) {‘o’}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>5.3 Fault Polylines:</strong></p>
+<ul class="simple">
+<li><p>single polyline per fault (no multipolylines)</p></li>
+<li><p>nodes on faulted boundaries coincident with geology polygon nodes</p></li>
+<li><dl class="simple">
+<dt>Attributes:</dt><dd><ul>
+<li><p>Text that identifies polyline as a fault (str) {‘fault’}</p></li>
+<li><p>Dip of fault (str or float) {‘fdip’}</p></li>
+<li><p>Dip Direction of Fault (str or float) {‘fdipdir’}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>5.4 Bedding Points:</strong></p>
+<ul class="simple">
+<li><p>single points (no multipoints)</p></li>
+</ul>
+<dl class="simple">
+<dt>Attributes:</dt><dd><ul class="simple">
+<li><p>Dip (float) {‘d’}</p></li>
+<li><p>Dip Direction or Strike (float) {‘dd’}</p></li>
+<li><p>Code to show what convention is used: Strike RHR, or DD at the moment (str) {‘otype’}</p></li>
+<li><p>Code to show what type of foliation: Bedding, S1 etc. (str) {‘sf’}</p></li>
+<li><p>Code to say this unit is overturned (str) {‘bo’}</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>5.5 Mineral Deposits: (Optional, can use default data from Notebook 3)</strong></p>
+<ul class="simple">
+<li><p>single points (no multipoints)</p></li>
+</ul>
+<dl class="simple">
+<dt>Attributes:</dt><dd><ul class="simple">
+<li><p>Site Code (str) {‘msc’}</p></li>
+<li><p>Name of deposit (str) {‘msn’}</p></li>
+<li><p>Type of feature: open pit, occurence, abandoned etc., (str) {‘mst’}</p></li>
+<li><p>Code to show what main commodity: Fe, Iron, etc. (str) {‘mtc’}</p></li>
+<li><p>Code to show what main commodity class: Industrial, Metal, etc. (str) {‘mcom’}</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>5.6 Fold Axial Trace Polylines: (Optional)</strong></p>
+<ul class="simple">
+<li><p>single polyline per trace (no multipolylines)</p></li>
+</ul>
+<dl class="simple">
+<dt>Attributes:</dt><dd><ul class="simple">
+<li><p>Text that identifies polyline as a fold axial trace (str) {‘feature’}</p></li>
+<li><p>Code that defines fold as syncline (str) {‘syn’}</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inputs.html" class="btn btn-neutral float-left" title="Inputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="outputs.html" class="btn btn-neutral float-right" title="Outputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mark Jessell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
