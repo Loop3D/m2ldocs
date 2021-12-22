@@ -68,6 +68,8 @@ Contents
 
    usage
    inputs
+   minimum_data
+   outputs
    configuring_map2loop
    project
    config

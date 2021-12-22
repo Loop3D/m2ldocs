@@ -14,7 +14,7 @@ To use map2loop, first install it using conda
 Sample data and notebooks
 -------------------------
 
-The best way to get started is to try out the `example ipython motebooks <https://github.com/Loop3D/map2loop2-notebooks>`_
+The best way to get started is to try out the `example ipython notebooks <https://github.com/Loop3D/map2loop2-notebooks>`_
 
 
 Using your own data
